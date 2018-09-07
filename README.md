@@ -1,5 +1,11 @@
 autoscale: true
 
+# *テーマレビューの現場から見た、抑えておくべきテーマ制作のセオリーと基礎知識*
+
+#### *WordCamp Tokyo 2018 / 金井俊浩*
+
+---
+
 ## 自己紹介
 
 ---
@@ -10,14 +16,19 @@ autoscale: true
 * 最近は Vue.js などのフロントエンドがメイン
 
 * WordPress Core Contributor
-* WordPress テーマレビューチームモデレータ
 * WordPress テーマ Coldbox 開発者
+* WordPress テーマレビューチームモデレータ
+
+* *Twitter: @mirucons / Facebook & GitHub etc.: mirucon*
+* *https://www.mirucon.com/*
 
 ^ (for TRT mod) WordPress.org に申請されるテーマをレビューし、承認したり、問題点があればそれを指摘したりする。これは誰でも参加できる。
 
-![inline 50% right](https://secure.gravatar.com/avatar/38228223544cf5f1f818c93ecdd4371f?s=500&d=mm&r=g)
+![30% right fit](https://secure.gravatar.com/avatar/38228223544cf5f1f818c93ecdd4371f?s=500&d=mm&r=g)
 
 ---
+
+<!--
 
 ## このセッションの目的
 
@@ -25,6 +36,8 @@ autoscale: true
 * 受託開発などでテーマ制作をしたことがあるが、配布テーマを作ってみたい人
 
 ---
+
+-->
 
 ## テーマの基礎
 
@@ -36,7 +49,7 @@ autoscale: true
 
 ### テーマとは
 
-* ウェブサイト全体の見た目からレイアウト、構成、機能まで様々な場所に影響を及ぼす、WordPress サイトの「キモ」
+##### ウェブサイト全体の見た目からレイアウト、構成、機能まで様々な場所に影響を及ぼす、WordPress サイトの「キモ」
 
 ---
 
@@ -59,6 +72,8 @@ my-theme/
   L style.css    
 ```
 
+^ index.php, style.css は必須・テンプレートファイルについて
+
 ---
 
 ### テーマでは何をするべき ?
@@ -79,7 +94,9 @@ my-theme/
 
 **=> 見た目に直接関係ない機能をテーマに入れるべきではない**
 
-^ 例 : Open Graph タグ・
+^ 例 : Open Graph タグ・Google Analytics 機能
+
+^ テーマに入れてはいけない機能のことを "plugin territory" と呼ぶ
 
 ---
 
@@ -132,6 +149,8 @@ my-theme/
 * 他の人に再配布する自由
 * 改変したものを共有する自由
 
+^ (for redistribution) これにより他のテーマ・プラグインのコードを参考にしたりとかもできる (ただし著作権はあるよ)
+
 ^ これら自体はそこまで珍しいものではない
 
 ---
@@ -147,7 +166,9 @@ my-theme/
 
 ^ (last) この流れは永遠に続くわけであり、WordPress の派生プロダクトを元に作られたテーマは GPL, そしてそれを元に作られた子テーマも GPL になって… といったようにずっと続く
 
-^ (for next) ここまで聞いて、あれ、あの人気テーマは「自由」が担保されたないと思った方もいますよね
+<!-- ^ (for next) (スプリットライセンスについて) WordPress のテーマはすべて自由じゃないといけないのじゃないの ?  と思う人もいるかも知れない -->
+
+<!--
 
 ---
 
@@ -165,12 +186,14 @@ my-theme/
 * スプリットライセンスは WordPress の「自由を認める」という思考に反する
 * WordPress.org のテーマディレクトリにそのテーマを掲載できなくなる他、**WordCamp などのイベントへの登壇・運営スタッフ参加・**などが出来なくなる
 
+-->
+
 ---
 
 ### 配布しない場合について
 
 * GPL は**配布する場合にのみ**適応されるライセンスであり、配布しない場合には GPL でライセンスする**必要はない**
-* ただし、WordPress を使っているということは GPL 製品を使っているということ
+* それでも GPL は皆さんに知っておいてもらいたいもの - WordPress を使っているということは GPL 製品を使っているということ
 
 ^ GPL は変わるものではない - GPL の最初のリリースは1989年
 
@@ -184,20 +207,38 @@ my-theme/
 
 ---
 
-#### _s
+### スターターテーマ
+
+* 手間のかかる最初の設定や、どんなテーマでも必要になるようなコードを設定済みにしてくれるもの
+* 例えば :
+	* Sass のコンパイル設定
+	* index.php や single.php のループ (投稿表示部分)
+
+---
+
+#### \_s (underscores)
 
 * Automattic 社 (JetPack プラグインの開発などをしている会社) の開発するスターターテーマ
-* かなり中身はシンプル
+* かなり中身はシンプルな PHP テンプレート + CSS
+* シンプルに抑えたいテーマに特におすすめ
+
+![right50%](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/underscores.me.png)
 
 ---
 
 ### コーディング規約
+
+---
+
+### コーディング規約
+
 
 * コーディング規約とは、**コードの書き方**についての決まりごと
 * WordPress には **WordPress Coding Standards** という、WordPress 専用の規約がある
 * これはコードのフォーマットだけでなく、後で触れる**セキュリティ**に関することも指摘してくれる
 
 ^ ぜひ知っておいてもらいたいもの
+^ _s だと設定済みなので特に簡単
 
 ---
 
@@ -207,7 +248,7 @@ my-theme/
 * 例えば :
 
 ```php
-if( is_single()) {
+if (is_single() ){
 ```
 
 のようなものを以下のように矯正できる :
@@ -218,12 +259,14 @@ if ( is_single() ) {
 
 ---
 
+^ 他の便利機能はあとで紹介します
+
 <!--ここにもうちょっとあるといいかも-->
 
 ### 役立つとき
 
 * 複数人開発する時に、コードの書き方の癖をなくせる
-* 一人開発でも、
+* 一人開発でも、アップデートの期間が空いてしまったときでもコードの質を保てる
 
 ^ 自動修正もできる
 
@@ -233,23 +276,214 @@ if ( is_single() ) {
 
 ---
 
+### なぜセキュリティ対策が必要なのか
+
+^ 具体的な話の前に理由を
+
+---
+
+### なぜセキュリティ対策が必要なのか
+
+* プログラムには「特別な意味を持つ文字列」があったりする
+* また WordPress では HTML を扱うことが多く、**HTML を使用できる = JavaScript を使用できる** ということであり、JavaScript には色々なことができてしまうため、悪用の恐れがある
+
+---
+
+### なぜセキュリティ対策が必要なのか
+
+たとえば、HTML のこんな文字列 :
+
+```
+< > ' "
+```
+
+これらを許可してしまうと、予期しないところで HTML が使われてしまう
+
+---
+
+### クロスサイトスクリプティング (XSS)
+
+* JavaScript を使用するなどして、ユーザーが予期しない動作をするコードを読み込むこと
+* JavaScript で実際にできてしまうこと :
+	* 勝手に他のサイト (特にウイルス配布サイトなど) に転送
+	* 投稿内容を書き換え
+
+^ こんなようなものがカスタム HTML フィールドなどの出力時に動作されてしまったりする
+
+^ これを防ぐためには次のようなことをしよう :
+
+
+---
+
 ### 大きく2つのセキュリティ対策
 
-* エスケープ
 * サニタイズ
+	=> データを**保存するとき**にデータを無害化 = 信用できない文字列を取り除く
+	
+* エスケープ
+	=> データを**出力するとき**に特殊文字列をエスケープしそのまま表示するようにする
 
 ---
-
-### エスケープ
-
-=> データを**出力するとき**に
-
----
-
 
 ### サニタイズ
 
-=> データを保存するとき
+---
+
+### サニタイズの例
+
+* `wp_kses()` 関数
+	* 許可する HTML のクラス・属性を指定し、許可されないものを削除する
+
+例えばこんな HTML :
+
+```html
+こんにちは、<br/>
+<span class="my-class" style="color: red">金井</span>です。
+```
+
+---
+
+### 普通に表示すればこうなる :
+
+---
+
+### 普通に表示すればこうなる :
+
+![inline center fit](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/strings-before-kses.png)
+
+---
+
+#### wp_kses() 関数を使うと
+
+#### *wp_kses() 関数 を使って <span> タグと `class` 属性のみを許可*
+
+---
+
+### wp_kses() 関数を使うと :
+
+![inline 150%](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/strings-after-kses.png)
+
+![inline 150%](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/html-after-kses.png)
+
+^ わかりやすさのために出力しているが、本来はデータ保存のタイミング
+
+---
+
+### `wp_kses()` 関数の使い方
+
+```php
+$allowed_html = [
+  'span' => [
+    'class' => [],
+  ],
+];
+
+$data = wp_kses( $data, $allowed_html );
+```
+
+---
+
+### 他の WordPress サニタイズ関数
+
+* sanitize\_email()
+* sanitize\_file\_name()
+* sanitize\_html\_class()
+* sanitize\_text\_field()
+
+^ ぜんぶ WordPress 側で用意されている
+
+---
+
+### テーマカスタマイザーとサニタイズ
+
+<!--時間がありそうならやりたい-->
+
+```php
+$wp_customize->add_setting(
+	'credit_text', array(
+		'default'           => '©2018 このサイトの運営者',
+		'sanitize_callback' => 'wp_kses_post',
+	)
+);
+$wp_customize->add_control(
+	new WP_Customize_Control(
+		$wp_customize, 'credit_text', array(
+			'label'       => __( 'クレジットを編集', 'text-domain' ),
+			'section'     => 'footer',
+			'type'        => 'textarea',
+		)
+	)
+);
+```
+
+^ テーマカスタマイザーという、テーマの設定画面に追加できる設定  
+^ HTML を含む文字列を扱うことや、ラジオボタンなど、特定の文字列以外でないことを確認したいこともある
+	
+---	
+
+### エスケープ
+
+---
+
+### エスケープの例
+
+* `esc_html()` 関数
+	=> すべての HTML をプレーンテキスト化する<br/>	
+
+例えばこんな HTML :<br/>
+
+```html
+こんにちは、<br/>
+<span class="my-class" style="color: red">金井</span>です。
+```
+
+---
+
+### するとこうなる :
+
+![inline fit](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/strings-after-escape.png)
+
+---
+
+### エスケープの動作
+
+* HTML の特殊な文字列を、**エスケープ文字**と呼ばれる特殊な意味が無効化されている文字列に置き換える
+
+例 :
+
+```
+< (小なり) => &lt;
+< (大なり) => &gt;
+```
+
+^ こういった文字列を使用することで文字効果を打ち消すことができ、普通の文字列として表示するようになる そのため HTML タグが動かないように
+
+---
+
+### 他の WordPress エスケープ関数
+
+* esc_attr()
+* esc_url()
+* esc_textarea()
+* esc_js()
+
+---
+
+### セキュリティ対策のコツ
+
+---
+
+### セキュリティ対策のコツ
+
+* すべてを疑うこと
+
+* サニタイズした上でエスケープが必要なこともある
+
+* WordPress Coding Standards を使う
+
+![inline center fit](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/wpcs-xss-notice.png)
+
+^ 「ここに変なものを入れる人はいないだろ」のような慢心をしない
 
 ---
 
@@ -257,18 +491,83 @@ if ( is_single() ) {
 
 ---
 
-### ディレクトリ構成
+### 「WordPress の書き方」を覚える
+
+* WordPress には素の PHP とは違う「WordPress 的な書き方」がある
+* 例えばこのような関数など :
+
+	* `get_template_part()`
+	* `wp_enqueue_script()`,  `wp_enqueue_style()`
+
+---
+
+### ドキュメントを書く
+
+* クラス・関数には極力ドキュメントを書く
+	* WordPress Coding Standards を使うとコメントが抜けていると教えてくれる
+* ドキュメントの書き方として **phpdoc** コメント という物がある
+
+
+^ (for documenting) 時間が経つと、そもそもこのコードが何をするかよくわからなくなってしまう場合もある。その際にいちいち全部コードを読み解いていると時間がかかってしまう
+^ ドキュメントの正しい書き方も学ぶ
+
+---
+
+### phpdoc コメントの書き方
+
+```php
+/**
+ * 指定された数の関連記事を返す
+ *
+ * @param int $max_posts 表示する最大記事数
+ * @since 1.0.0
+ **/
+function theme_get_related_posts( $max_posts ) {
+	... 
+```
+
+---
+
+### テーマをチェックできるツール・プラグインを使う
+
+* [テーマユニットテスト](https://wpdocs.osdn.jp/%E3%83%86%E3%83%BC%E3%83%9E%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88)
+* [Theme Check | WordPress.org](https://wordpress.org/plugins/theme-check/)
+* [WPTRT/theme-sniffer: Theme Sniffer plugin using sniffs.](https://github.com/WPTRT/theme-sniffer)
+* [Debug Bar | WordPress.org](https://wordpress.org/plugins/debug-bar/)
 
 ---
 
 ## WordPress.org テーマディレクトリ掲載にあたって
 
+---
+
 ### 要求事項
+
+* WordPress.org テーマディレクトリには **要求事項  (Requirements)** という、掲載のために沿わないといけないルールがある
+* 要求事項の詳細は、[Required – Theme Review Team — WordPress](https://make.wordpress.org/themes/handbook/review/required/) を参照
+* 日本語訳もあります : [https://github.com/mirucon/required-ja](https://github.com/mirucon/required-ja)
+
+
+^ 前に述べた、「テーマでは何をすべき」かといったもの
 
 ---
 
-Remaining things to write about:
+### テーマレビューチームは誰でも参加できる
 
-* セキュリティについて (エスケープとサニタイズ)
-* メンテナンスをしやすくするには (コーディング規約・ディレクトリ構成・など)
-* WordPress.org テーマディレクトリの掲載にあたって
+* やる気がある人なら誰でも歓迎
+* 最終的に承認できる権限は限られた人にしか与えられてないので、安心して良い
+
+---
+
+## まとめ
+
+* テーマ制作には、**スターターテーマ**、**WordPress Coding Standards**、**Theme Check プラグイン** など便利なツールが多い
+* GPL ライセンスは自由を認める、利用者にも開発者にも優しいライセンス
+* セキュリティ問題には主に「サニタイズ」と「エスケープ」で対策する
+
+---
+
+## ありがとうございました
+
+##### *Twitter: @mirucons*
+##### *https://www.mirucon.com/* 
