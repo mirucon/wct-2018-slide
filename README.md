@@ -24,7 +24,7 @@ autoscale: true
 
 ^ (for TRT mod) WordPress.org に申請されるテーマをレビューし、承認したり、問題点があればそれを指摘したりする。これは誰でも参加できる。
 
-![30% right fit](https://secure.gravatar.com/avatar/38228223544cf5f1f818c93ecdd4371f?s=500&d=mm&r=g)
+![30% right fit](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/code-new-circle.png)
 
 ---
 
