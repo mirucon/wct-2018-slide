@@ -294,7 +294,7 @@ if ( is_single() ) {
 たとえば、HTML のこんな文字列 :
 
 ```
-< > ' "
+< > ' " &
 ```
 
 これらを許可してしまうと、予期しないところで HTML が使われてしまう
@@ -364,9 +364,9 @@ if ( is_single() ) {
 
 ### wp_kses() 関数を使うと :
 
-![inline 150%](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/strings-after-kses.png)
+![inline 200% center](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/strings-after-kses.png)
 
-![inline 150%](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/html-after-kses.png)
+![inline 160% center](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/html-after-kses.png)
 
 ^ わかりやすさのために出力しているが、本来はデータ保存のタイミング
 
@@ -484,7 +484,11 @@ $wp_customize->add_control(
 
 * WordPress Coding Standards を使う
 
-![inline center fit](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/wpcs-xss-notice.png)
+---
+
+### セキュリティ対策のコツ - WordPress Coding Standards
+
+![inline center](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/wpcs-xss-notice.png)
 
 ^ 「ここに変なものを入れる人はいないだろ」のような慢心をしない
 
@@ -501,6 +505,10 @@ $wp_customize->add_control(
 
 	* `get_template_part()`
 	* `wp_enqueue_script()`,  `wp_enqueue_style()`
+
+^ `get_template_part()` は require ではない、「テンプレートパーツを読み込むもの」  
+^ `enqueue` 系は直書きをしないように
+	
 
 ---
 
