@@ -1,5 +1,9 @@
 autoscale: true
 
+![full center](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/%E9%87%91%E4%BA%95%20%E4%BF%8A%E6%B5%A9.jpg)
+
+---
+
 # *テーマレビューの現場から見た、抑えておくべきテーマ制作のセオリーと基礎知識*
 
 #### *WordCamp Tokyo 2018 / 金井俊浩*
