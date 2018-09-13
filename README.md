@@ -209,7 +209,7 @@ my-theme/
 
 ### スターターテーマ
 
-* 手間のかかる最初の設定や、どんなテーマでも必要になるようなコードを設定済みにしてくれるもの
+* 手間のかかる最初の設定や、どんなテーマでも必要になるようなコードが設定済みの、制作のもとにするテーマ
 * 例えば :
 	* Sass のコンパイル設定
 	* index.php や single.php のループ (投稿表示部分)
@@ -219,7 +219,7 @@ my-theme/
 #### \_s (underscores)
 
 * Automattic 社 (JetPack プラグインの開発などをしている会社) の開発するスターターテーマ
-* かなり中身はシンプルな PHP テンプレート + CSS
+* かなり中身はシンプルな PHP テンプレート + CSS (SCSS)
 * シンプルに抑えたいテーマに特におすすめ
 
 ![right50%](https://raw.githubusercontent.com/mirucon/wct-2018-slide/master/screenshots/underscores.me.png)
@@ -233,7 +233,7 @@ my-theme/
 ### コーディング規約
 
 
-* コーディング規約とは、**コードの書き方**についての決まりごと
+* コーディング規約は **コードの書き方** についての決まりごと
 * WordPress には **WordPress Coding Standards** という、WordPress 専用の規約がある
 * これはコードのフォーマットだけでなく、後で触れる**セキュリティ**に関することも含まれる
 
